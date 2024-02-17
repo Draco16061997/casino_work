@@ -3,5 +3,11 @@
 using casino_Work;
 using casino_Work.Games;
 
-Blacjack blacjack = new Blacjack();
-blacjack.PlayGame();
+
+//List<IGame> games = new List<IGame>();
+//games.Add(new Blacjack());
+//games.Add(new Poker());
+
+
+
+

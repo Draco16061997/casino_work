@@ -12,8 +12,9 @@ namespace casino_Work.Games
 
         string Description { get; }
 
-
+        
         bool PlayGame();
+
     }
 
 }
