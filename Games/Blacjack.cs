@@ -8,11 +8,6 @@ using System.Threading.Tasks;
 
 
 
-Blacjack blacjack = new Blacjack();
-
-blacjack.PlayGame();
-
-
 
 
 namespace casino_Work.Games
@@ -22,11 +17,10 @@ namespace casino_Work.Games
         Random rnd = new Random();
         public string Name => "Blacjack";
 
-        public string Description => "Блэкджек - это комбинация из туза и любой другой карты стоимостью 10 очков " +
-            "(валет, дама, король или десятка). " +
-            "Это должны быть первые две сданные Вам карты. Получив блэкджек, " +
-            "Вы точно не проиграете. Однако, если у дилера тоже будет блэкджек, " +
-            "то Вы сыграете вничью.";
+        public string Description => $"Чтобы победить тебе надо набрать больше очков \n" +
+            $"чем у меня но чтобы было менше 21 \n" +
+            $"очка если ваш счет будет больше чем 21 или \n" +
+            $"меньше чем у меня то вы проиграли (";
 
         public bool PlayGame()
         {
@@ -36,45 +30,66 @@ namespace casino_Work.Games
 
            
 
-            int CauntDiller = rnd.Next(2, 21);
+            int CountDiller = rnd.Next(2, 21);
             int CountPlayer = 0;
-
-            Console.WriteLine("две кнопки Y беру еще карту  and N не беру");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("брать карту ('Y')  не брать ('N') ");
+            Console.WriteLine("");
             Console.WriteLine("============");
-
+            
+            
 
             while (true)
-                {
-                
+            {
                 Console.WriteLine("Береш карту?");
-                
-                string les = Console.ReadLine();
-                if (CountPlayer <= 21)
+                if (CountPlayer < 22) 
                 {
-
-                    if (les == "Y")
+                    if (Console.ReadLine().ToUpper() == "Y")
                     {
                         CountPlayer += rnd.Next(2, 10);
                         Console.WriteLine(CountPlayer);
+
+                        
                     }
-                    else {
-                        Console.WriteLine("else");
+                    else
+                    {
+                        if (CountPlayer > CountDiller) 
+                        {
+                        Console.WriteLine("Your Win!!!");
+                        Console.WriteLine("YOU " + CountPlayer + " Diler " + CountDiller);
+                        return true;
+                            break;
+                        }
+                        else if (CountDiller == CountPlayer) 
+                        {
+                            Console.WriteLine("Ничия начинаем 2 раунд");
+                            PlayGame();
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Game Over!!!");
+                            Console.WriteLine("YOU " + CountPlayer + " Diler " + CountDiller);
+                            return false;
+                            break;
+
+                        }
                     }
-
-
-
                 }
-                else {
-                    Console.WriteLine("Game over!");
+                else { Console.WriteLine("Geme Over!!!");
                     return false;
                     break;
                 }
 
+                
             }
+                
+                    
+
         }
-        
-
-
     }
 }
+
 
