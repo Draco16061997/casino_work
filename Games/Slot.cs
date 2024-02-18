@@ -27,12 +27,12 @@ namespace casino_Work.Games
             Console.WriteLine(slot1+" "+slot2+" "+slot3);
             if (slot1 == slot2 && slot2== slot3 && slot1 == slot3)
             {
-                Console.WriteLine("You Win!!!");
+                //Console.WriteLine("You Win!!!");
                 return true;
             }
             else
             {
-                Console.WriteLine("You Loss!!!");
+                //Console.WriteLine("You Loss!!!");
                 return false;
             }
 

@@ -9,5 +9,7 @@ using casino_Work.Games;
 //games.Add(new Poker());
 
 
+IBetting betting = new Betting(new List<IGame> () {new Blacjack(), new Slot() } );
 
-
+betting.games.Add(new Rulete());
+betting.SelectGame();
