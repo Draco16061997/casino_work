@@ -26,9 +26,9 @@ namespace casino_Work.Games
         {
             Console.WriteLine("Сиграем в " + Name);
             Console.WriteLine(Description);
-            
 
-           
+
+
 
             int CountDiller = rnd.Next(2, 21);
             int CountPlayer = 0;
@@ -38,31 +38,31 @@ namespace casino_Work.Games
             Console.WriteLine("брать карту ('Y')  не брать ('N') ");
             Console.WriteLine("");
             Console.WriteLine("============");
-            
-            
+
+
 
             while (true)
             {
                 Console.WriteLine("Береш карту?");
-                if (CountPlayer < 22) 
+                if (CountPlayer < 22)
                 {
                     if (Console.ReadLine().ToUpper() == "Y")
                     {
                         CountPlayer += rnd.Next(2, 10);
                         Console.WriteLine(CountPlayer);
 
-                        
+
                     }
                     else
                     {
-                        if (CountPlayer > CountDiller) 
+                        if (CountPlayer > CountDiller)
                         {
-                        Console.WriteLine("Your Win!!!");
-                        Console.WriteLine("YOU " + CountPlayer + " Diler " + CountDiller);
-                        return true;
+                            //Console.WriteLine("Your Win!!!");
+                            Console.WriteLine("YOU " + CountPlayer + " Diler " + CountDiller);
+                            return true;
                             break;
                         }
-                        else if (CountDiller == CountPlayer) 
+                        else if (CountDiller == CountPlayer)
                         {
                             Console.WriteLine("Ничия начинаем 2 раунд");
                             PlayGame();
@@ -70,7 +70,7 @@ namespace casino_Work.Games
                         }
                         else
                         {
-                            Console.WriteLine("Game Over!!!");
+                            //Console.WriteLine("Game Over!!!");
                             Console.WriteLine("YOU " + CountPlayer + " Diler " + CountDiller);
                             return false;
                             break;
@@ -78,18 +78,18 @@ namespace casino_Work.Games
                         }
                     }
                 }
-                else { Console.WriteLine("Geme Over!!!");
+                else
+                {
+                    //Console.WriteLine("Geme Over!!!");
                     return false;
                     break;
                 }
 
-                
+
             }
-                
-                    
+
+
 
         }
     }
 }
-
-
